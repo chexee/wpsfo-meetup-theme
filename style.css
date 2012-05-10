@@ -9,3 +9,55 @@ Version:        0.1.0
 */
 
 @import url('../p2/style.css');
+
+body {
+	background: url('images/bg.gif');
+}
+
+/* =Header 
+====================================================== */
+
+#header {
+	margin: 40px auto 0 auto;
+}
+
+#header h1 a {
+	display: block;
+	width: 367px;
+	height: 129px;
+	margin: -20px 0 0 10px;
+	
+	background: url('images/logo.png') no-repeat;
+	text-indent: -9999px;
+}
+
+#header small {
+	display: none;
+}
+
+/* =Main Navigation 
+====================================================== */
+
+.main-navigation {
+	margin: 0;
+
+	background: #f58426;
+	border-bottom: 5px #9D4624 solid;
+}
+
+.main-navigation .menu li a {
+	padding: 5px 20px;
+
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+.main-navigation .menu li a:hover {
+	background: #E27524;
+}
+
+.main-navigation .menu li.current-menu-item a,
+.main-navigation .menu li.current_page_item a {
+	background: #9D4624;
+	color: #fff;
+}
