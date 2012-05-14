@@ -26,8 +26,44 @@ h5 {
 	font-family: "pt-sans", "PT Sans", "helvetica neue", sans-serif;
 }
 
-a {
+a,
+a:visited,
+a:active,
+.actions a,
+#main .selected .actions a:link, 
+#main .selected .actions a:visited {
 	color: #F38125;
+}
+
+a:hover {
+	color: #9D4624;
+	border: 0;
+}
+
+/* =Typography
+====================================================== */
+
+#main h2 {
+	padding-bottom: 15px;
+	margin-top: 10px;
+}
+
+#main .actions a,
+#main h4,
+#main span.meta,
+.controls {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.actions a.thepermalink,
+.controls #togglecomments {
+	margin-right: 5px;
+}
+.actions a.comment-reply-link,
+.controls #directions-keyboard {
+	margin-left: 5px;
 }
 
 /* =Header 
@@ -63,19 +99,23 @@ a {
 	
 	position: absolute;
 	right: 0;
-	top: 20px;
+	top: 25px;
 	
-	background: rgba(0,0,0,0.8);
+	background: rgba(0,0,0,0.7);
+
+	padding: 10px;
+	font-size: 13px;
+	z-index: 99;
 }
 
-/* Next Meetup Block */
+.wpsf-next-meetup a {
+	color: #F38125;
+	border: 0;
+	font-weight: bold;
+}
 
-.wpsf-next-meetup {
-	padding: 10px;
-
-	font-size: 14px;
-	
-	z-index: 99;
+.wpsf-next-meetup a:hover {
+	border: 0;
 }
 
 .wpsf-next-meetup h3 {
@@ -111,6 +151,7 @@ a {
 	color: #fff;
 	
 	text-transform: uppercase;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
 	text-align: center;
 	letter-spacing: 2px;
 	font-size: 12px;
@@ -172,4 +213,33 @@ a {
 .main-navigation .menu li.current_page_item a {
 	background: #9D4624;
 	color: #fff;
+}
+
+
+/* =Posts
+====================================================== */
+
+#main #postlist li {
+	border-top-color: #ccc;
+}
+
+#main #postlist .commentlist li {
+	border-top-color: #eee;
+}
+
+#main #postlist .avatar {
+	padding: 3px;
+}
+
+.postcontent {
+	padding-left: 67px;
+	font-size: 15px;
+}
+
+/* Collapsed discussion */
+
+.discussion {
+	margin-left: 67px;
+	border-top: 1px #EEE solid;
+	padding: 2px 0;
 }
