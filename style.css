@@ -11,7 +11,23 @@ Version:        0.1.0
 @import url('../p2/style.css');
 
 body {
-	background: url('images/bg.gif');
+	background: #535353 url('images/bg.gif');
+}
+
+body, 
+td, 
+p, 
+li,
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: "pt-sans", "PT Sans", "helvetica neue", sans-serif;
+}
+
+a {
+	color: #F38125;
 }
 
 /* =Header 
@@ -19,6 +35,11 @@ body {
 
 #header {
 	margin: 40px auto 0 auto;
+}
+
+#header .sleeve {
+	width: 100%;
+	position: relative;
 }
 
 #header h1 a {
@@ -35,11 +56,100 @@ body {
 	display: none;
 }
 
+/* Next Meetup */
+
+.wpsf-next-meetup {
+	width: 345px;
+	
+	position: absolute;
+	right: 0;
+	top: 20px;
+	
+	background: rgba(0,0,0,0.8);
+}
+
+/* Next Meetup Block */
+
+.wpsf-next-meetup {
+	padding: 10px;
+
+	font-size: 14px;
+	
+	z-index: 99;
+}
+
+.wpsf-next-meetup h3 {
+	background: #18BDC9;
+	color: #fff;
+	
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+	text-shadow: 			0 -1px 0 rgba(0,0,0,0.5);
+	-webkit-text-shadow: 	0 -1px 0 rgba(0,0,0,0.5);
+	-moz-text-shadow: 		0 -1px 0 rgba(0,0,0,0.5);
+
+	margin: -10px -10px 0 -10px;
+	padding: 5px 10px;
+}
+
+.wpsf-next-meetup .wpsf-meetup-date {
+	display: block;
+	position: absolute;
+	
+	width: 50px;
+	
+	padding: 15px 10px;
+	
+	top: 25px; 
+	bottom: 0;
+	left: 0;
+	
+	float: left;
+	background: rgba(93,93,93,0.5);
+	color: #fff;
+	
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 2px;
+	font-size: 12px;
+}
+
+.wpsf-next-meetup .wpsf-meetup-date strong {
+	display: block;
+	font-size: 30px;
+	font-weight: normal;
+	letter-spacing: 0;
+}
+
+.wpsf-next-meetup .wpsf-meetup-desc {
+	margin: 10px 0 0 80px;
+}
+
+.wpsf-next-meetup .wpsf-meetup-desc h4 {
+	margin: 0 0 5px 0;
+
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.wpsf-next-meetup .wpsf-meetup-desc h4 a {
+	color: #fff;
+}
+
+.wpsf-next-meetup .wpsf-meetup-desc h4 a {
+	color: #fff;
+	font-weight: bold;
+}
+
 /* =Main Navigation 
 ====================================================== */
 
 .main-navigation {
 	margin: 0;
+	
+	font-family: "pt-sans", "PT Sans", "helvetica neue", sans-serif;
 
 	background: #f58426;
 	border-bottom: 5px #9D4624 solid;
@@ -48,8 +158,10 @@ body {
 .main-navigation .menu li a {
 	padding: 5px 20px;
 
-	color: #fff;
+	font-size: 16px;
 	text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+
+	color: #fff;
 }
 
 .main-navigation .menu li a:hover {
