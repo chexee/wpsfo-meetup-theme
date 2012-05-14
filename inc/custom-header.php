@@ -23,9 +23,9 @@
 function p2_setup_custom_header() {
 	$args = array(
 		'width'               => 980,
-		'height'              => 120,
+		'height'              => 250,
 		'default-image'       => '',
-		'default-text-color'  => '3478e3',
+		'default-text-color'  => 'ffffff',
 		'wp-head-callback'    => 'p2_header_style',
 		'admin-head-callback' => 'p2_admin_header_style',
 	);
