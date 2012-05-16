@@ -15,7 +15,21 @@ function _wpsfo_next_meetup_request() {
 		return $next_meetup;
 
 	// Don't use an API key, see http://www.meetup.com/meetup_api/auth/#keysign
-	$signed_url = 'http://api.meetup.com/2/events?group_id=1174738&status=upcoming&_=1337201528652&order=time&desc=false&offset=0&format=json&page=20&fields=&sig_id=6435625&sig=1247b10e42c7dde387a70d392a1680bf62a2b6e0';
+	$api_base = 'http://api.meetup.com';
+	$api_endpoint = '/2/events?';
+	$api_query_args = array(
+		'group_id' => '1174738',
+		'status'   => 'upcoming',
+		'order'    => 'time',
+		'desc'     => 'false',
+		'offset'   => '0',
+		'format'   => 'json',
+		'page'     => '1',
+		'fields'   => '',
+		'sig_id'   => '6435625',
+		'sig'      => 'f4629eeb1ec5c4807b3b57bfd3a681534c340b10',
+	);
+	$signed_url = $api_base . $api_endpoint . http_build_query( $api_query_args );
 
 	// Make the request
 	$response = wp_remote_get( $signed_url );
