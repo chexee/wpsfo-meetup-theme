@@ -7,7 +7,7 @@ function wpsfo_custom_header_size( $args ) {
 add_filter( 'p2_custom_header_args', 'wpsfo_custom_header_size' );
 
 // Make a request to the meetup.com API
-function _wpsfo_meetup_request() {
+function _wpsfo_next_meetup_request() {
 	$transient_key = 'wpsfo_next_meetup';
 
 	if( $next_meetup = get_transient( $transient_key ) )
@@ -41,8 +41,8 @@ function _wpsfo_meetup_request() {
 }
 
 // Get a particular piece of information about the meetup
-function wpsfo_get_meetup( $param ) {
-	$next_meetup = _wpsfo_meetup_request();
+function wpsfo_get_next_meetup( $param ) {
+	$next_meetup = _wpsfo_next_meetup_request();
 
 	// Check for failed requests
 	if( !$next_meetup )
