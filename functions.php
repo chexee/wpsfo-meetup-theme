@@ -14,7 +14,7 @@ function _wpsfo_next_meetup_request() {
 	if( $next_meetup )
 		return $next_meetup;
 
-	// Don't use an API key, see http://www.meetup.com/meetup_api/auth/#keysign
+	// Build the meetup API request
 	$api_base = 'http://api.meetup.com';
 	$api_endpoint = '/2/events?';
 	$api_query_args = array(
@@ -27,6 +27,7 @@ function _wpsfo_next_meetup_request() {
 		'page'     => '1',
 		'fields'   => '',
 		'sig_id'   => '6435625',
+		// Don't use an API key, see http://www.meetup.com/meetup_api/auth/#keysign
 		'sig'      => 'f4629eeb1ec5c4807b3b57bfd3a681534c340b10',
 	);
 	$signed_url = $api_base . $api_endpoint . http_build_query( $api_query_args );
