@@ -10,7 +10,8 @@ add_filter( 'p2_custom_header_args', 'wpsfo_custom_header_size' );
 function _wpsfo_next_meetup_request() {
 	$transient_key = 'wpsfo_next_meetup';
 
-	if( $next_meetup = get_transient( $transient_key ) )
+	$next_meetup = get_transient( $transient_key );
+	if( $next_meetup )
 		return $next_meetup;
 
 	// Don't use an API key, see http://www.meetup.com/meetup_api/auth/#keysign
@@ -21,8 +22,9 @@ function _wpsfo_next_meetup_request() {
 
 	// Cache failed requests but not for long, just in case something goes crazy with the API
 	if( is_wp_error( $response ) || !isset( $response['body'] ) ) {
-		set_transient( $transient_key, false, 60 );
-		return false;
+		$meetup_api_error = new WP_Error( 'meetup_api', 'Request failed' );
+		set_transient( $transient_key, $meetup_api_error, 60 );
+		return $meetup_api_error;
 	}
 
 	// Get the next meetup's data
@@ -30,8 +32,9 @@ function _wpsfo_next_meetup_request() {
 
 	// Make sure the data we want is there
 	if( !isset( $data->results ) || !isset( $data->results[0] ) ) {
-		set_transient( $transient_key, false, 60 );
-		return false;	
+		$meetup_api_error = new WP_Error( 'meetup_api', 'Response data missing' );
+		set_transient( $transient_key, $meetup_api_error, 60 );
+		return $meetup_api_error;	
 	}
 
 	// Cache and return our result
@@ -45,7 +48,7 @@ function wpsfo_get_next_meetup( $param ) {
 	$next_meetup = _wpsfo_next_meetup_request();
 
 	// Check for failed requests
-	if( !$next_meetup )
+	if( is_wp_error( $next_meetup ) )
 		return '';
 
 	// Timestamps are returned in miliseconds for reasons I'll never understand
