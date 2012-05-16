@@ -70,9 +70,9 @@ function wpsfo_get_next_meetup( $param ) {
 	$meetup_timestamp = ( $next_meetup->time + $next_meetup->utc_offset ) / 1000;
 
 	switch( $param ) {
-		case 'name':  return $next_meetup->name;
 		case 'url':   return $next_meetup->event_url;
 		case 'month': return date( 'M', $meetup_timstamp );
 		case 'day':   return date( 'j', $meetup_timestamp );
+		default:      return $next_meetup->$param;
 	}
 }
