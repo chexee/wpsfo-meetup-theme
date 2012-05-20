@@ -71,7 +71,7 @@ function wpsfo_get_next_meetup( $param ) {
 
 	switch( $param ) {
 		case 'url':   return $next_meetup->event_url;
-		case 'month': return date( 'M', $meetup_timstamp );
+		case 'month': return date( 'M', $meetup_timestamp );
 		case 'day':   return date( 'j', $meetup_timestamp );
 		default:      return $next_meetup->$param;
 	}
